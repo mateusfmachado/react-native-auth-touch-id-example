@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
+/* 
+    Tela simples com texto inicio e um botão que redireciona para a 
+    rota que precisa de autenticação;
+
+    A função (this.props.history.push('/user')) utiliza uma propriedade 
+    da estrutura de rotas que redireciona para a rota 'user'
+*/
 export default class Home extends Component {
     render() {
         return (

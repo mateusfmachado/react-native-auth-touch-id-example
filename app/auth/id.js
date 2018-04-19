@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, TouchableOpacity, View, ViewPropTypes } from 'react-native';
+import { StyleSheet, Alert, Image, Text, TouchableOpacity, View, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types'
 import FingerprintScanner from 'react-native-fingerprint-scanner';
 
@@ -44,7 +44,10 @@ class FingerprintPopup extends Component {
                         Autenticação{'\n'}com Digital 
                     </Text>
                     {/* Aqui é mostrado o aviso para o usuario e as instruções de uso */}
-                    <Text style={styles.description(!!errorMessage)}>
+                    <Text style={[
+                        styles.description, 
+                        { color: (this.state.errorMessage) ? '#ea3d13' : '#a5a5a5' }
+                        ]}>
                         {errorMessage || 'Escaneie sua digital\npara autenticar e continuar'}
                     </Text>  
                     {/* Este botão redireciona o cliente para a tela anterior */}  
@@ -85,14 +88,13 @@ const styles = StyleSheet.create({
         color: '#00a4de',
         fontSize: 21,
     },
-    description: (error) => ({
+    description: {
         textAlign: 'center',
-        color: error ? '#ea3d13' : '#a5a5a5',
         height: 65,
         fontSize: 18,
         marginVertical: 10,
         marginHorizontal: 20,
-    }),
+    },
     buttonContainer: {
         padding: 20,
     },
